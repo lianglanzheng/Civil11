@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="./hackswjtu.style.newg.css">
+<title>新生信息查询 - HackSwjtu</title>
+<script type="text/javascript">
+function textInputTitleOnclick(target)
+{
+    target.parentNode.firstElementChild.focus();
+}
+
+function textInputFocus(target)
+{
+    target.parentNode.className="textInput onActive";
+}
+
+function textInputOnblur(target)
+{
+    if (target.value=="") target.parentNode.className="textInput";
+    else target.parentNode.className="textInput onFilled";
+}
+
+function search()
+{
+    keyword=document.getElementById("Keyword").text;
+    document.getElementById("result").onload="hackclick()";
+    document.getElementById("result").src="http://jiaowu.swjtu.edu.cn/weixin/web/freshman.jsp";
+}
+
+function hackiframe()
+{
+    //var injectXML=new XMLHttpRequest();
+    //injectXML.open("GET","hackiframe.js",false);
+    //injectXML.send();
+    var injectText=document.createElement("script");
+    injectText.type="text/javascript";
+    //injectText.innerHTML=injectXML.responseText;
+    injectText.innerHTML="alert(document.body.innerHTML)";
+    //document.getElementById("result").contentDocument.body.appendChild(injectText);
+}
+
+</script>
+
+<script type="text/javascript" crossorigin='anonymous' src='http://jiaowu.swjtu.edu.cn/weixin/web/freshman.jsp'>
+    var injectXML=new XMLHttpRequest();
+    injectXML.open("GET","http://jiaowu.swjtu.edu.cn/weixin/web/freshman.jsp",false);
+    injectXML.send();
+    alert(injectXML.responseText);
+</script>
+
+</head>
+
+<body>
+
+<iframe id="result" src="http://jiaowu.swjtu.edu.cn/weixin/web/freshman.jsp" scrolling="no" width="100%" height="1000px" onload="hackiframe()"></iframe>
+
+<div style="height: 15px"></div>
+<div class="articlebox">
+    <div style="padding: 0 0 0 0; margin: 0" align="left"><a href="http://www.hackswjtu.com/"><img style="height: 30px" src="./hackswjtu.logo.png"></a></div>
+    <div class="articleblock-content">
+        <div>
+            <p class="articletext" style="color: #555">西南交通大学新生信息查询<font onclick="window.open('http://freshman.swjtu.edu.cn/')" color="#ED764D">（找老乡、找学弟学妹～）</font></p>
+        </div>
+    </div>
+</div>
+
+<div style="height: 15px"></div>
+<div id="mainbox" class="formbox">
+    <div class="formblock-content">
+        <div class="formDescribe">
+            <h1 class="headingText">新生信息查询</h1>
+        </div>
+    </div>
+    <div class="formblock-fill">
+        <div class="textInput">
+            <input id="Keyword" name="Keyword" type="text" onfocus="textInputFocus(this)" onblur="textInputOnblur(this)">
+            <div class="inputTitle" onclick="textInputTitleOnclick(this)">姓名/中学/地方</div>
+            <div class="inputUnderline"></div>
+            <div class="inputUnderlineH"></div>
+        </div>
+    </div>
+    <div class="formblock-action">
+        <div class="buttonDefault" onclick="search()"><span>查询</span></div>
+        <div class="textButton" onclick="window.open('help.html')"><span>遇到问题，需要帮助？</span></div>
+    </div>
+    <input id="loginbutton" type="submit" style="display:none" value="login">
+</div>
+
+<div style="height: 30px"></div>
+<div class="copyrightbox">
+    <div class="articleblock-content">
+        <div>
+            <p class="articletext">如果你对我们的项目感兴趣，请访问我们的主页和GitHub</p>
+        </div>
+        <div onclick="window.location.assign('http://www.hackswjtu.com/')">
+            <p class="articletext">主页: http://www.hackswjtu.com/</p>
+        </div>
+        <div onclick="window.location.assign('https://github.com/HackSwjtu')">
+            <p class="articletext">GitHub: https://github.com/HackSwjtu</p>
+        </div>
+    </div>
+    <div style="padding: 0.5em 0 0 0; margin: 0" align="right"><a href="http://www.hackswjtu.com/"><img style="height: 15px" src="./hackswjtu.banner_header.svg"></a></div>
+</div>
+<div style="height: 50px"></div>
+
+</body>
+</html>
